@@ -19,7 +19,7 @@ jobs:
     - name: Retrieve EC2 Instance ID
       id: retrieve-ec2
       run: |
-        NSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=sonarqube" --query 'Reservations[*].Instances[*].InstanceId' --output text)
+        INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=sonarqube" --query 'Reservations[*].Instances[*].InstanceId' --output text)
         echo "INSTANCE_ID=$INSTANCE_ID" >> $GITHUB_ENV
 
     - name: Print instance ID
